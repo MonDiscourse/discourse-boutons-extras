@@ -17,6 +17,9 @@ translations.composer.couleur_prompt =
 translations.surligner_button = settings.surligner_button_text;
 translations.composer.surligner_prompt =
   settings.surligner_prompt;
+translations.columns_button = settings.columns_button;
+translations.composer.columns_text =
+  settings.columns_text;
 
 // TOOLBAR
 api.addToolbarPopupMenuOptionsCallback(() => {
@@ -40,6 +43,13 @@ api.addToolbarPopupMenuOptionsCallback(() => {
     label: "surligner_button"
   };
 });
+api.addToolbarPopupMenuOptionsCallback(() => {
+  return {
+      action: "columns",
+      icon: "columns",
+      label: "columns_button"
+  };
+});
 
 // ACTIONS
 api.modifyClass("controller:composer", {
@@ -61,6 +71,13 @@ api.modifyClass("controller:composer", {
     surligner() {
       this.get("toolbarEvent").applySurround("[su]", "[/su]", "surligner_prompt");
     },
+  }
+});
+api.modifyClass("controller:composer", {
+  actions: {
+	columns() {
+	  this.get("toolbarEvent").applySurround('[wrap="columns"]\n', '\n[/wrap]', "columns_text");
+	}
   }
 });
 </script>
