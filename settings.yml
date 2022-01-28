@@ -1,26 +1,8 @@
-barrer_button_text:
-  default: "Barrer"
+strikethrough_button_text:
+  default: "Strikethrough"
   description:
     en: Enter the text for the title of the button in the composer.
-barrer_prompt:
-  default: "Texte"
-  description:
-    en: Enter the placeholder text that appears in the composer after the user clicks the button.
-
-couleur_button_text:
-  default: "Couleur"
-  description:
-    en: Enter the text for the title of the button in the composer.
-couleur_prompt:
-  default: "Texte"
-  description:
-    en: Enter the placeholder text that appears in the composer after the user clicks the button.
-
-surligner_button_text:
-  default: "Surligner"
-  description:
-    en: Enter the text for the title of the button in the composer.
-surligner_prompt:
-  default: "Texte"
+strikethrough_prompt:
+  default: "Text"
   description:
     en: Enter the placeholder text that appears in the composer after the user clicks the button.
