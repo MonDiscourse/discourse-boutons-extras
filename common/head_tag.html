@@ -43,6 +43,7 @@ api.addToolbarPopupMenuOptionsCallback(() => {
 
 // ACTIONS
 api.modifyClass("controller:composer", {
+  pluginId: 'discourse-boutons-extras',
   actions: {
     barrer() {
       this.get("toolbarEvent").applySurround("<s>", "</s>", "barrer_prompt");
@@ -50,6 +51,7 @@ api.modifyClass("controller:composer", {
   }
 });
 api.modifyClass("controller:composer", {
+  pluginId: 'discourse-boutons-extras',
   actions: {
     couleur() {
       this.get("toolbarEvent").applySurround("[color=#000000]", "[/color]", "couleur_prompt");
@@ -57,6 +59,7 @@ api.modifyClass("controller:composer", {
   }
 });
 api.modifyClass("controller:composer", {
+  pluginId: 'discourse-boutons-extras',
   actions: {
     surligner() {
       this.get("toolbarEvent").applySurround("[su]", "[/su]", "surligner_prompt");
