@@ -1,41 +1,27 @@
 <script type="text/discourse-plugin" version="0.8">
-// TOOLBAR
-api.addToolbarPopupMenuOptionsCallback(() => {
-  return {
-      action: "barrer",
-      icon: "strikethrough",
-      label: "barrer_button"
-  };
-});
-api.addToolbarPopupMenuOptionsCallback(() => {
-  return {
-    action: "couleur",
-    icon: "palette",
-    label: "couleur_button"
-  };
-});
-api.addToolbarPopupMenuOptionsCallback(() => {
-  return {
-    action: "surligner",
-    icon: "eraser",
-    label: "surligner_button"
-  };
-});
+const { iconNode } = require("discourse-common/lib/icon-library");
 
-// ACTIONS
-api.modifyClass("controller:composer", {
-  pluginId: 'discourse-boutons-extras',
-  actions: {
-    barrer() {
-      this.get("toolbarEvent").applySurround("<s>", "</s>", "barrer_prompt");
-    },
-    couleur() {
-      this.get("toolbarEvent").applySurround("[color=#000000]", "[/color]", "couleur_prompt");
-    },
-    surligner() {
-      this.get("toolbarEvent").applySurround("[su]", "[/su]", "surligner_prompt");
-    }
-  }
+// TOOLBAR
+api.addComposerToolbarPopupMenuOption({
+  action: (toolbarEvent) => {
+    toolbarEvent.applySurround('<s>', '</s>', "barrer_button");
+  },
+  icon: 'strikethrough',
+  label: 'barrer_button',
+});
+api.addComposerToolbarPopupMenuOption({
+  action: (toolbarEvent) => {
+    toolbarEvent.applySurround('[color=#000000]', '</s>', "barrer_button");
+  },
+  icon: 'palette',
+  label: 'couleur_button',
+});
+api.addComposerToolbarPopupMenuOption({
+  action: (toolbarEvent) => {
+    toolbarEvent.applySurround('[su]', '[/su]', "barrer_button");
+  },
+  icon: 'eraser',
+  label: 'surligner_button',
 });
 
 // TRADUCTIONS
