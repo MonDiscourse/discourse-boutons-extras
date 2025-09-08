@@ -12,14 +12,14 @@ export default apiInitializer((api) => {
 });
 api.addComposerToolbarPopupMenuOption({
   action: (toolbarEvent) => {
-    toolbarEvent.applySurround('[color=#000000]', '</s>', "barrer_button");
+    toolbarEvent.applySurround('[color=#000000]', '</s>', "couleur_button");
   },
   icon: 'palette',
   label: 'couleur_button',
 });
 api.addComposerToolbarPopupMenuOption({
   action: (toolbarEvent) => {
-    toolbarEvent.applySurround('[su]', '[/su]', "barrer_button");
+    toolbarEvent.applySurround('[su]', '[/su]', "surligner_button");
   },
   icon: 'eraser',
   label: 'surligner_button',
