@@ -1,8 +1,9 @@
-<script type="text/discourse-plugin" version="0.8">
-const { iconNode } = require("discourse-common/lib/icon-library");
+import { apiInitializer } from "discourse/lib/api";
+import icon from "discourse/helpers/d-icon";
+import I18n from "discourse-i18n";
 
-// TOOLBAR
-api.addComposerToolbarPopupMenuOption({
+export default apiInitializer((api) => {
+  api.addComposerToolbarPopupMenuOption({
   action: (toolbarEvent) => {
     toolbarEvent.applySurround('<s>', '</s>', "barrer_button");
   },
@@ -41,4 +42,4 @@ translations.composer.couleur_prompt =
 translations.surligner_button = settings.surligner_button_text;
 translations.composer.surligner_prompt =
   settings.surligner_prompt;
-</script>
+});
