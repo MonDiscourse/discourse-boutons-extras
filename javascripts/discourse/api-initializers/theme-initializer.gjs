@@ -1,45 +1,52 @@
 import { apiInitializer } from "discourse/lib/api";
+import I18n from "I18n";
 import icon from "discourse/helpers/d-icon";
-import I18n from "discourse-i18n";
 
-export default apiInitializer((api) => {
+async function applyHighlight(element) {
+  const highlights = element.querySelectorAll("mark");
+  if (!highlights.length) {
+    return;
+  }
+}
+
+// Helper function to get raw text without translation
+function getRawText(text) {
+  return text.replace(/\[.*?\]/g, '');
+}
+
+export default apiInitializer("0.11.1", (api) => {
+  const { iconNode } = require("discourse-common/lib/icon-library");
+  const currentLocale = I18n.currentLocale();
+
+  // Localization setup - keep only the button titles in translations
+  I18n.translations[currentLocale].js.barrer_button_title = settings.barrer_button;
+  I18n.translations[currentLocale].js.align_couleur_title = settings.couleur_button;
+  I18n.translations[currentLocale].js.align_surligner_title = settings.surligner_button;
+  I18n.translations[currentLocale].js.composer.barrer_text = settings.subscript_text;
+  I18n.translations[currentLocale].js.composer.couleur_text = settings.couleur_text;
+  I18n.translations[currentLocale].js.composer.surligner_text = settings.surligner_text;
+
+  // Toolbar
   api.addComposerToolbarPopupMenuOption({
-  action: (toolbarEvent) => {
-    toolbarEvent.applySurround('<s>', '</s>', "composer.barrer_prompt");
-  },
-  icon: 'strikethrough',
-  label: 'barrer_button',
-});
-api.addComposerToolbarPopupMenuOption({
-  action: (toolbarEvent) => {
-    toolbarEvent.applySurround('[color=#000000]', '</s>', "composer.couleur_prompt");
-  },
-  icon: 'palette',
-  label: 'couleur_button',
-});
-api.addComposerToolbarPopupMenuOption({
-  action: (toolbarEvent) => {
-    toolbarEvent.applySurround('[su]', '[/su]', "composer.surligner_prompt");
-  },
-  icon: 'eraser',
-  label: 'surligner_button',
-});
+    action: (toolbarEvent) => {
+      toolbarEvent.applySurround('<s>', '</s>', "barrer_text");
+    },
+    icon: "strikethrough",
+    label: "barrer_button_title",
+  });
 
-// TRADUCTIONS
-let translations = I18n.translations[I18n.currentLocale()].js;
-if (!translations) {
-  translations = {};
-}
-if (!translations.composer) {
-  translations.composer = {};
-}
-translations.barrer_button = settings.barrer_button_text;
-translations.composer.barrer_prompt =
-  settings.barrer_prompt;
-translations.couleur_button = settings.couleur_button_text;
-translations.composer.couleur_prompt =
-  settings.couleur_prompt;
-translations.surligner_button = settings.surligner_button_text;
-translations.composer.surligner_prompt =
-  settings.surligner_prompt;
+  api.addComposerToolbarPopupMenuOption({
+    action: (toolbarEvent) =>
+      toolbarEvent.applySurround('[color=#000000]', "[/color]", "couleur_text"),
+    icon: "palette",
+    label: "couleur_button_title",
+  });
+
+  api.addComposerToolbarPopupMenuOption({
+    action: (toolbarEvent) => {
+      toolbarEvent.applySurround('[su]', '[/su]', "surligner_text");
+    },
+    icon: 'eraser',
+    label: 'surligner_button',
+  });
 });
