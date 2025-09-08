@@ -5,21 +5,21 @@ import I18n from "discourse-i18n";
 export default apiInitializer((api) => {
   api.addComposerToolbarPopupMenuOption({
   action: (toolbarEvent) => {
-    toolbarEvent.applySurround('<s>', '</s>', "barrer_button");
+    toolbarEvent.applySurround('<s>', '</s>', "composer.barrer_prompt");
   },
   icon: 'strikethrough',
   label: 'barrer_button',
 });
 api.addComposerToolbarPopupMenuOption({
   action: (toolbarEvent) => {
-    toolbarEvent.applySurround('[color=#000000]', '</s>', "couleur_button");
+    toolbarEvent.applySurround('[color=#000000]', '</s>', "composer.couleur_prompt");
   },
   icon: 'palette',
   label: 'couleur_button',
 });
 api.addComposerToolbarPopupMenuOption({
   action: (toolbarEvent) => {
-    toolbarEvent.applySurround('[su]', '[/su]', "surligner_button");
+    toolbarEvent.applySurround('[su]', '[/su]', "composer.surligner_prompt");
   },
   icon: 'eraser',
   label: 'surligner_button',
