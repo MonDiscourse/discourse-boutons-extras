@@ -1,8 +1,8 @@
 en:
   js:
-    barrer_button_title: "Barrer"
-    couleur_button_title: "Couleur"
-    surligner_button_title: "Surligner"
+    barrer_button_title: "Strikethrough"
+    couleur_button_title: "Color"
+    surligner_button_title: "Highlight"
     barrer_text: "Text"
     couleur_text: "Text"
     surligner_text: "Text"
