@@ -1,5 +1,5 @@
 barrer_button:
-  default: "Barrer"
+  default: "Strikethrough"
   description:
     en: Enter the text for the title of the button in the composer.
 barrer_text:
@@ -7,7 +7,7 @@ barrer_text:
   description:
     en: Enter the placeholder text that appears in the composer after the user clicks the button.
 couleur_button:
-  default: "Highlighter"
+  default: "Color"
   description:
     en: Enter the text for the title of the button in the composer.
 couleur_text:
@@ -15,7 +15,7 @@ couleur_text:
   description:
     en: Enter the placeholder text that appears in the composer after the user clicks the button.
 surligner_button:
-  default: "Center"
+  default: "Highlight"
   description:
     en: Enter the text for the title of the button in the composer.
 surligner_text:
