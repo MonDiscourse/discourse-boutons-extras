@@ -5,9 +5,9 @@ export default apiInitializer((api) => {
 	const currentLocale = I18n.currentLocale();
   // Localization setup - keep only the button titles in translations
   I18n.translations[currentLocale].js.barrer_button_title = settings.barrer_button;
-  I18n.translations[currentLocale].js.align_couleur_title = settings.couleur_button;
-  I18n.translations[currentLocale].js.align_surligner_title = settings.surligner_button;
-  I18n.translations[currentLocale].js.composer.barrer_text = settings.subscript_text;
+  I18n.translations[currentLocale].js.couleur_title = settings.couleur_button;
+  I18n.translations[currentLocale].js.surligner_title = settings.surligner_button;
+  I18n.translations[currentLocale].js.composer.barrer_text = settings.barrer_text;
   I18n.translations[currentLocale].js.composer.couleur_text = settings.couleur_text;
   I18n.translations[currentLocale].js.composer.surligner_text = settings.surligner_text;
 
