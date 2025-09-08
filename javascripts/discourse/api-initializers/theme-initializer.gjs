@@ -1,52 +1,28 @@
 import { apiInitializer } from "discourse/lib/api";
-import I18n from "I18n";
 import icon from "discourse/helpers/d-icon";
 
-async function applyHighlight(element) {
-  const highlights = element.querySelectorAll("mark");
-  if (!highlights.length) {
-    return;
-  }
-}
-
-// Helper function to get raw text without translation
-function getRawText(text) {
-  return text.replace(/\[.*?\]/g, '');
-}
-
-export default apiInitializer("0.11.1", (api) => {
-  const { iconNode } = require("discourse-common/lib/icon-library");
-  const currentLocale = I18n.currentLocale();
-
-  // Localization setup - keep only the button titles in translations
-  I18n.translations[currentLocale].js.barrer_button_title = settings.barrer_button;
-  I18n.translations[currentLocale].js.align_couleur_title = settings.couleur_button;
-  I18n.translations[currentLocale].js.align_surligner_title = settings.surligner_button;
-  I18n.translations[currentLocale].js.composer.barrer_text = settings.subscript_text;
-  I18n.translations[currentLocale].js.composer.couleur_text = settings.couleur_text;
-  I18n.translations[currentLocale].js.composer.surligner_text = settings.surligner_text;
-
+export default apiInitializer((api) => {
   // Toolbar
   api.addComposerToolbarPopupMenuOption({
     action: (toolbarEvent) => {
-      toolbarEvent.applySurround('<s>', '</s>', "barrer_text");
+      toolbarEvent.applySurround('<s>', '</s>', "Texte");
     },
     icon: "strikethrough",
-    label: "barrer_button_title",
+    label: "Barrer",
   });
 
   api.addComposerToolbarPopupMenuOption({
     action: (toolbarEvent) =>
-      toolbarEvent.applySurround('[color=#000000]', "[/color]", "couleur_text"),
+      toolbarEvent.applySurround('[color=#000000]', "[/color]", "Texte"),
     icon: "palette",
-    label: "couleur_button_title",
+    label: "Couleur",
   });
 
   api.addComposerToolbarPopupMenuOption({
     action: (toolbarEvent) => {
-      toolbarEvent.applySurround('[su]', '[/su]', "surligner_text");
+      toolbarEvent.applySurround('[su]', '[/su]', "Texte");
     },
     icon: 'eraser',
-    label: 'surligner_button',
+    label: 'Surligner',
   });
 });
