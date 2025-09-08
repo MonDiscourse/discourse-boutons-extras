@@ -1,10 +1,7 @@
 import { apiInitializer } from "discourse/lib/api";
 import icon from "discourse/helpers/d-icon";
 
-export default apiInitializer("0.11.1", (api) => {
-  const { iconNode } = require("discourse-common/lib/icon-library");
-  const currentLocale = I18n.currentLocale();
-
+export default apiInitializer((api) => {
   // Localization setup - keep only the button titles in translations
   I18n.translations[currentLocale].js.barrer_button_title = settings.barrer_button;
   I18n.translations[currentLocale].js.align_couleur_title = settings.couleur_button;
@@ -16,7 +13,7 @@ export default apiInitializer("0.11.1", (api) => {
   // Toolbar
   api.addComposerToolbarPopupMenuOption({
     action: (toolbarEvent) => {
-      toolbarEvent.applySurround('<s>', '</s>', "barrer_text");
+      toolbarEvent.applySurround("<s>", "</s>", "barrer_text");
     },
     icon: "strikethrough",
     label: "barrer_button_title",
@@ -24,16 +21,16 @@ export default apiInitializer("0.11.1", (api) => {
 
   api.addComposerToolbarPopupMenuOption({
     action: (toolbarEvent) =>
-      toolbarEvent.applySurround('[color=#000000]', "[/color]", "couleur_text"),
+      toolbarEvent.applySurround("[color=#000000]", "[/color]", "couleur_text"),
     icon: "palette",
     label: "couleur_button_title",
   });
 
   api.addComposerToolbarPopupMenuOption({
     action: (toolbarEvent) => {
-      toolbarEvent.applySurround('[su]', '[/su]', "surligner_text");
+      toolbarEvent.applySurround("[su]", "[/su]", "surligner_text");
     },
-    icon: 'highlighter',
-    label: 'surligner_button',
+    icon: "highlighter",
+    label: "surligner_button_title",
   });
 });
