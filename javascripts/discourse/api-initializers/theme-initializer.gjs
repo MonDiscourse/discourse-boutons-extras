@@ -2,6 +2,7 @@ import { apiInitializer } from "discourse/lib/api";
 import icon from "discourse/helpers/d-icon";
 
 export default apiInitializer((api) => {
+	const currentLocale = I18n.currentLocale();
   // Localization setup - keep only the button titles in translations
   I18n.translations[currentLocale].js.barrer_button_title = settings.barrer_button;
   I18n.translations[currentLocale].js.align_couleur_title = settings.couleur_button;
